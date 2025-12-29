@@ -4,17 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Михаил Бабков | Python Backend Developer & DevOps Engineer</title>
+    
+    <!-- Мета-теги для SEO и соцсетей -->
+    <meta name="description" content="Портфолио Python Backend Developer & DevOps Engineer. Разработка веб-приложений, парсинг данных, автоматизация процессов и production-развертывание.">
+    <meta name="keywords" content="Python, Django, PostgreSQL, DevOps, Backend, Разработчик, Портфолио">
+    <meta property="og:title" content="Михаил Бабков | Python Backend Developer & DevOps Engineer">
+    <meta property="og:description" content="Портфолио Python разработчика с проектами: облачное хранилище, парсинг игр, сайт храма">
+    <meta property="og:image" content="https://mikhailbbk.github.io/assets/preview.jpg">
+    <meta property="og:url" content="https://mikhailbbk.github.io">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Михаил Бабков | Python Backend Developer">
+    <meta name="twitter:description" content="Портфолио разработчика Python с production проектами">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Дополнительные стили для улучшенного дизайна */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #666;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 25px rgba(0,0,0,0.15);
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Плавная прокрутка */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        /* Навигация */
+        header {
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            background: rgba(255,255,255,0.1);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        /* Герой секция */
         .hero {
             position: relative;
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
             overflow: hidden;
             min-height: 100vh;
             display: flex;
             align-items: center;
+            padding-top: 80px;
         }
 
         .hero::before {
@@ -39,15 +142,17 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            padding: 0 2rem;
         }
 
         .hero h2 {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, #fff, #3498db);
+            background: linear-gradient(45deg, #fff, var(--primary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 700;
+            line-height: 1.2;
         }
 
         @media (max-width: 768px) {
@@ -62,6 +167,7 @@
             opacity: 0.9;
             font-weight: 300;
             line-height: 1.4;
+            color: white;
         }
 
         @media (max-width: 768px) {
@@ -79,15 +185,15 @@
         }
 
         .btn-primary {
-            background: #e74c3c;
+            background: var(--accent-color);
             color: white;
             padding: 1rem 2.5rem;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
-            transition: all 0.3s;
-            border: 2px solid #e74c3c;
+            transition: var(--transition);
+            border: 2px solid var(--accent-color);
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
@@ -107,7 +213,7 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
-            transition: all 0.3s;
+            transition: var(--transition);
             border: 2px solid white;
             display: inline-flex;
             align-items: center;
@@ -116,17 +222,32 @@
 
         .btn-secondary:hover {
             background: white;
-            color: #2c3e50;
+            color: var(--secondary-color);
             transform: translateY(-3px);
+        }
+
+        /* Секции */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 1.5rem;
+            }
         }
 
         .section-title {
             text-align: center;
             font-size: 2.8rem;
             margin-bottom: 4rem;
-            color: #2c3e50;
+            color: var(--secondary-color);
             position: relative;
             font-weight: 700;
+            width: 100%;
+            display: block;
+            text-align: center;
         }
 
         .section-title::after {
@@ -134,115 +255,245 @@
             position: absolute;
             width: 120px;
             height: 4px;
-            background: #3498db;
+            background: var(--primary-color);
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 2px;
         }
 
+        /* Специальный стиль для заголовка в секции контактов */
+        .contact .section-title {
+            color: white;
+            display: block;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            left: 0;
+            transform: none;
+        }
+
+        .contact .section-title::after {
+            background: white;
+        }
+
         /* Карточки проектов */
+        .projects {
+            background: var(--light-color);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .project-card {
             position: relative;
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--transition);
             border: none;
-            min-height: 380px;
+            min-height: 400px;
             display: flex;
             flex-direction: column;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
-            transition: 0.5s;
-        }
-
-        .project-card:hover::before {
-            left: 100%;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
         }
 
         .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
         }
 
         .project-icon {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
-            transition: transform 0.3s;
-            color: #3498db;
-        }
-
-        .project-card:hover .project-icon {
-            transform: scale(1.1) rotate(5deg);
+            color: var(--primary-color);
+            text-align: center;
         }
 
         .project-card h3 {
-            color: #2c3e50;
+            color: var(--secondary-color);
             margin-bottom: 1rem;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 600;
+            text-align: center;
         }
 
         .project-card p {
-            color: #666;
-            margin-bottom: 2rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
             line-height: 1.6;
             flex-grow: 1;
+            text-align: center;
         }
 
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
+            justify-content: center;
             margin-bottom: 1.5rem;
         }
 
         .tech-stack span {
-            background: linear-gradient(45deg, #3498db, #2c3e50);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
         }
 
-        /* Обо мне секция */
-        .about-content {
+        .project-links-container {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+            flex-wrap: wrap;
+        }
+
+        .project-link-details {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            flex: 1;
+            justify-content: center;
+        }
+
+        .project-link-details:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .project-link-github {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #333;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            flex: 1;
+            justify-content: center;
+        }
+
+        .project-link-github:hover {
+            background: #222;
+            transform: translateY(-2px);
+        }
+
+        .project-status {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            font-weight: 500;
+        }
+
+        /* Иконки технологий */
+        .tech-icons-section {
+            background: white;
+            padding: 6rem 2rem;
+        }
+
+        .tech-icons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .tech-icon-item {
             display: flex;
             flex-direction: column;
-            gap: 3rem;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.5rem;
+            transition: var(--transition);
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .tech-icon-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .tech-icon-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .tech-icon-item span {
+            font-weight: 500;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Секция "Обо мне" */
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .about-text {
             background: white;
             padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--primary-color);
         }
 
         .about-text h3 {
-            color: #2c3e50;
+            color: var(--secondary-color);
             margin-bottom: 1.5rem;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .about-text p {
-            color: #666;
+            color: var(--text-color);
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             line-height: 1.7;
-        }
-
-        .about-text p:last-child {
-            margin-bottom: 0;
         }
 
         .skills-grid {
@@ -254,9 +505,10 @@
         .skill-category {
             background: white;
             padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 3px solid var(--primary-color);
         }
 
         .skill-category:hover {
@@ -264,7 +516,7 @@
         }
 
         .skill-category h4 {
-            color: #3498db;
+            color: var(--primary-color);
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
@@ -275,6 +527,7 @@
 
         .skill-category ul {
             list-style: none;
+            padding: 0;
         }
 
         .skill-category li {
@@ -296,64 +549,124 @@
         }
 
         /* Контакты */
+        .contact {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: white;
+            text-align: center;
+        }
+
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 2rem;
             flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         .contact-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: var(--border-radius);
             text-align: center;
-            transition: all 0.3s;
+            transition: var(--transition);
             min-width: 250px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .contact-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .contact-card i {
             font-size: 3rem;
-            color: #3498db;
+            color: white;
             margin-bottom: 1.5rem;
         }
 
         .contact-card h3 {
-            color: #2c3e50;
+            color: white;
             margin-bottom: 1rem;
             font-size: 1.5rem;
             font-weight: 600;
         }
 
         .contact-card a {
-            color: #2c3e50;
+            color: white;
             text-decoration: none;
             font-weight: 500;
             font-size: 1.1rem;
-            transition: color 0.3s;
+            transition: var(--transition);
+            display: inline-block;
+            margin-bottom: 0.5rem;
         }
 
         .contact-card a:hover {
             color: #3498db;
+            text-decoration: underline;
         }
 
-        /* Статус проекта */
-        .project-status {
-            display: inline-block;
-            background: #f39c12;
+        .contact-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .collaboration-cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .collaboration-cta h3 {
             color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            margin-left: 0.5rem;
-            vertical-align: middle;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .collaboration-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Футер */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
             font-weight: 500;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            opacity: 0.8;
         }
 
         /* Анимации */
@@ -373,92 +686,71 @@
             opacity: 0;
         }
 
-        /* Ссылки на проекты */
-        .project-links-container {
-            display: flex;
-            gap: 1rem;
-            margin-top: auto;
-            flex-wrap: wrap;
-        }
+        /* Порядок проектов */
+        .project-card:nth-child(1) { animation-delay: 0s; }  /* QuizPlease Autoreg */
+        .project-card:nth-child(2) { animation-delay: 0.1s; } /* Cloud Storage */
+        .project-card:nth-child(3) { animation-delay: 0.2s; } /* Temple Site */
 
-        .project-link-details {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #3498db;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.3s;
-            flex: 1;
-            justify-content: center;
-        }
-
-        .project-link-details:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-        }
-
-        .project-link-github {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #333;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.3s;
-            flex: 1;
-            justify-content: center;
-        }
-
-        .project-link-github:hover {
-            background: #222;
-            transform: translateY(-2px);
-        }
-
-        /* Секции */
-        section {
-            padding: 8rem 2rem;
-        }
-
+        /* Адаптивность для навигации */
         @media (max-width: 768px) {
-            section {
-                padding: 5rem 1.5rem;
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
             }
-        }
 
-        /* Адаптивность */
-        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .btn-primary,
             .btn-secondary {
                 width: 100%;
                 max-width: 300px;
+                text-align: center;
             }
-            
-            .contact-links {
+
+            .project-links-container {
                 flex-direction: column;
-                align-items: center;
             }
-            
-            .contact-card {
+
+            .project-link-details,
+            .project-link-github {
                 width: 100%;
-                max-width: 300px;
             }
-            
+
+            .tech-icons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .tech-icons {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-category,
             .about-text {
-                padding: 2rem;
+                padding: 1.5rem;
             }
         }
     </style>
@@ -470,7 +762,8 @@
             <ul>
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#projects">Проекты</a></li>
-                <li><a href="#about">Навыки</a></li>
+                <li><a href="#tech">Технологии</a></li>
+                <li><a href="#about">Обо мне</a></li>
                 <li><a href="#contact">Контакты</a></li>
             </ul>
         </nav>
@@ -485,7 +778,7 @@
                     <i class="fas fa-rocket"></i> Смотреть проекты
                 </a>
                 <a href="#contact" class="btn-secondary">
-                    <i class="fas fa-paper-plane"></i> Связаться со мной
+                    <i class="fas fa-paper-plane"></i> Связаться
                 </a>
             </div>
         </div>
@@ -495,120 +788,144 @@
         <h2 class="section-title">Мои проекты</h2>
         
         <div class="project-grid">
-
-            <!-- Проект 1: Cloud Storage -->
+            <!-- Проект 1: QuizPlease Autoreg (Январь 2025) -->
             <div class="project-card animate">
-                <div class="project-icon">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-                <h3>Облачное хранилище</h3>
-                <p>Fullstack веб-приложение для безопасного хранения файлов с шифрованием. Django REST API + React SPA с полным циклом разработки и production-развертыванием.</p>
-                <div class="tech-stack">
-                    <span>Python</span>
-                    <span>Django</span>
-                    <span>PostgreSQL</span>
-                    <span>React</span>
-                    <span>Nginx</span>
-                    <span>Gunicorn</span>
-                    <span>Ubuntu</span>
-                    <span>Docker</span>
-                </div>
-                <div class="project-links-container">
-                    <a href="projects/cloud-storage.html" class="project-link-details">
-                        <i class="fas fa-info-circle"></i> Подробнее
-                    </a>
-                    <a href="https://github.com/Mikhail15011976/cloud_storage" class="project-link-github" target="_blank">
-                        <i class="fab fa-github"></i> Код
-                    </a>
-                </div>
-            </div>
-
-            <!-- Проект 2: QuizPlease Autoreg -->
-            <div class="project-card animate" style="animation-delay: 0.1s;">
                 <div class="project-icon">
                     <i class="fas fa-robot"></i>
                 </div>
-                <h3>QuizPlease Autoreg</h3>
-                <p>Система автоматического мониторинга игр с Telegram уведомлениями и CI/CD пайплайном. Проект включает парсинг, обработку данных и автоматический деплой.</p>
+                <h3>QuizPlease Autoreg <span class="project-status">Production</span></h3>
+                <p>Система автоматического мониторинга игр с Telegram уведомлениями и CI/CD пайплайном. Парсинг данных, обработка, автоматический деплой.</p>
                 <div class="tech-stack">
                     <span>Python</span>
                     <span>BeautifulSoup</span>
                     <span>Telegram API</span>
                     <span>GitHub Actions</span>
                     <span>Systemd</span>
-                    <span>Ubuntu</span>
                     <span>CI/CD</span>
                 </div>
                 <div class="project-links-container">
                     <a href="projects/quizplease-autoreg.html" class="project-link-details">
                         <i class="fas fa-info-circle"></i> Подробнее
                     </a>
-                    <a href="https://github.com/Mikhail15011976/quizplease_autoreg" class="project-link-github" target="_blank">
+                    <a href="https://github.com/mikhailbbk/quizplease_autoreg" class="project-link-github" target="_blank">
                         <i class="fab fa-github"></i> Код
                     </a>
                 </div>
             </div>
 
-            <!-- Проект 3: English Verbs -->
-            <div class="project-card animate" style="animation-delay: 0.2s;">
+            <!-- Проект 2: Cloud Storage (Ноябрь 2024) -->
+            <div class="project-card animate">
                 <div class="project-icon">
-                    <i class="fas fa-language"></i>
+                    <i class="fas fa-cloud-upload-alt"></i>
                 </div>
-                <h3>Изучение английских глаголов</h3>
-                <p>Приложение для эффективного изучения неправильных глаголов с интеллектуальной системой повторений и прогрессирующей сложностью.</p>
+                <h3>Облачное хранилище</h3>
+                <p>Fullstack веб-приложение для безопасного хранения файлов с шифрованием. Django REST API + React SPA с production-развертыванием.</p>
                 <div class="tech-stack">
                     <span>Python</span>
-                    <span>Tkinter</span>
-                    <span>SQLite</span>
-                    <span>GUI</span>
-                    <span>Spaced Repetition</span>
-                    <span>Desktop App</span>
+                    <span>Django</span>
+                    <span>PostgreSQL</span>
+                    <span>React</span>
+                    <span>Nginx</span>
+                    <span>Docker</span>
                 </div>
                 <div class="project-links-container">
-                    <a href="projects/english-verbs.html" class="project-link-details">
+                    <a href="projects/cloud-storage.html" class="project-link-details">
                         <i class="fas fa-info-circle"></i> Подробнее
                     </a>
-                    <a href="https://github.com/Mikhail15011976/english-verbs" class="project-link-github" target="_blank">
+                    <a href="https://github.com/mikhailbbk/cloud_storage" class="project-link-github" target="_blank">
                         <i class="fab fa-github"></i> Код
                     </a>
                 </div>
             </div>
 
-            <!-- Проект 4: Temple Site -->
-            <div class="project-card animate" style="animation-delay: 0.3s;">
+            <!-- Проект 3: Temple Site (Production) -->
+            <div class="project-card animate">
                 <div class="project-icon">
                     <i class="fas fa-church"></i>
                 </div>
-                <h3>Сайт храма <span class="project-status">В разработке</span></h3>
-                <p>Информационный портал для религиозной организации с CMS, административной панелью и системой управления контентом.</p>
+                <h3>Сайт храма <span class="project-status">Production</span></h3>
+                <p>Официальный сайт Казанского храма с фотогалереей, информацией о святынях и системой пожертвований. Полный цикл развертывания на VPS.</p>
                 <div class="tech-stack">
-                    <span>HTML/CSS</span>
-                    <span>JavaScript</span>
-                    <span>PHP</span>
-                    <span>MySQL</span>
-                    <span>Bootstrap</span>
-                    <span>CMS</span>
+                    <span>Python</span>
+                    <span>Flask</span>
+                    <span>Nginx</span>
+                    <span>Gunicorn</span>
+                    <span>Ubuntu</span>
+                    <span>CI/CD</span>
                 </div>
                 <div class="project-links-container">
                     <a href="projects/temple-site.html" class="project-link-details">
                         <i class="fas fa-info-circle"></i> Подробнее
                     </a>
-                    <a href="https://github.com/Mikhail15011976/temple-site" class="project-link-github" target="_blank">
-                        <i class="fab fa-github"></i> Код
+                    <a href="http://194.67.124.178" class="project-link-github" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Сайт
                     </a>
                 </div>
             </div>
+        </div>
+    </section>
 
+    <section id="tech" class="tech-icons-section">
+        <h2 class="section-title">Технологический стек</h2>
+        
+        <div class="tech-icons">
+            <div class="tech-icon-item">
+                <i class="fab fa-python"></i>
+                <span>Python</span>
+            </div>
+            <div class="tech-icon-item">
+                <i class="fab fa-django"></i>
+                <span>Django</span>
+            </div>
+            <div class="tech-icon-item">
+                <i class="fas fa-database"></i>
+                <span>PostgreSQL</span>
+            </div>
+            <div class="tech-icon-item">
+                <i class="fab fa-react"></i>
+                <span>React</span>
+            </div>
+            <div class="tech-icon-item">
+                <i class="fab fa-docker"></i>
+                <span>Docker</span>
+            </div>
+            <div class="tech-icon-item">
+                <i class="fab fa-github"></i>
+                <span>GitHub Actions</span>
+            </div>
+            <div class="tech-icon-item">
+                <i class="fab fa-ubuntu"></i>
+                <span>Ubuntu Server</span>
+            </div>
+            <div class="tech-icon-item">
+                <i class="fas fa-server"></i>
+                <span>Nginx</span>
+            </div>
+            <div class="tech-icon-item">
+                <i class="fab fa-git-alt"></i>
+                <span>Git</span>
+            </div>
+            <div class="tech-icon-item">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram API</span>
+            </div>
+            <div class="tech-icon-item">
+                <i class="fas fa-code"></i>
+                <span>BeautifulSoup</span>
+            </div>
+            <div class="tech-icon-item">
+                <i class="fas fa-terminal"></i>
+                <span>Bash</span>
+            </div>
         </div>
     </section>
 
     <section id="about" class="about">
-        <h2 class="section-title">Мои навыки</h2>
+        <h2 class="section-title">Обо мне</h2>
         
         <div class="about-content">
-            <!-- Сначала текст об опыте и специализации -->
             <div class="about-text">
-                <h3>👨‍💻 Опыт и специализация</h3>
+                <h3><i class="fas fa-user-tie"></i> Опыт и специализация</h3>
                 <p>Python разработчик с фокусом на backend и DevOps. Специализируюсь на создании REST API, парсинге данных, автоматизации процессов и развертывании проектов на Linux-серверах.</p>
                 
                 <p>Имею опыт полного цикла разработки — от проектирования архитектуры до production-развертывания и поддержки. Работаю с современным стеком технологий и постоянно изучаю новые инструменты.</p>
@@ -616,49 +933,48 @@
                 <p>Основные направления работы включают разработку веб-приложений на Django и FastAPI, создание систем парсинга данных, настройку инфраструктуры на Linux серверах и реализацию CI/CD процессов.</p>
             </div>
             
-            <!-- Потом карточки с навыками -->
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h4><i class="fas fa-server"></i> Backend</h4>
+                    <h4><i class="fas fa-server"></i> Backend Development</h4>
                     <ul>
-                        <li><i class="fas fa-check"></i> Python 3.8+</li>
-                        <li><i class="fas fa-check"></i> Django / Django REST</li>
-                        <li><i class="fas fa-check"></i> FastAPI</li>
-                        <li><i class="fas fa-check"></i> JWT Authentication</li>
-                        <li><i class="fas fa-check"></i> Web Scraping</li>
+                        <li><i class="fas fa-check"></i> Python 3.8+ & Django/Django REST</li>
+                        <li><i class="fas fa-check"></i> FastAPI & ASGI Applications</li>
+                        <li><i class="fas fa-check"></i> JWT Authentication & Security</li>
+                        <li><i class="fas fa-check"></i> Web Scraping & Data Processing</li>
+                        <li><i class="fas fa-check"></i> REST API Design & Documentation</li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
                     <h4><i class="fas fa-database"></i> Базы данных</h4>
                     <ul>
-                        <li><i class="fas fa-check"></i> PostgreSQL</li>
-                        <li><i class="fas fa-check"></i> SQLite</li>
-                        <li><i class="fas fa-check"></i> MySQL</li>
-                        <li><i class="fas fa-check"></i> Миграции</li>
-                        <li><i class="fas fa-check"></i> Оптимизация</li>
+                        <li><i class="fas fa-check"></i> PostgreSQL & Advanced Queries</li>
+                        <li><i class="fas fa-check"></i> SQLite & MySQL</li>
+                        <li><i class="fas fa-check"></i> Миграции & Schema Design</li>
+                        <li><i class="fas fa-check"></i> Indexing & Query Optimization</li>
+                        <li><i class="fas fa-check"></i> Backup & Recovery Strategies</li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
-                    <h4><i class="fas fa-cloud"></i> DevOps</h4>
+                    <h4><i class="fas fa-cloud"></i> DevOps & Infrastructure</h4>
                     <ul>
-                        <li><i class="fas fa-check"></i> Ubuntu Server</li>
-                        <li><i class="fas fa-check"></i> Nginx</li>
-                        <li><i class="fas fa-check"></i> Gunicorn</li>
-                        <li><i class="fas fa-check"></i> Systemd</li>
-                        <li><i class="fas fa-check"></i> CI/CD</li>
+                        <li><i class="fas fa-check"></i> Ubuntu Server Administration</li>
+                        <li><i class="fas fa-check"></i> Nginx & Reverse Proxy Setup</li>
+                        <li><i class="fas fa-check"></i> Gunicorn & Uvicorn Servers</li>
+                        <li><i class="fas fa-check"></i> Systemd Services & Automation</li>
+                        <li><i class="fas fa-check"></i> CI/CD with GitHub Actions</li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
-                    <h4><i class="fas fa-tools"></i> Инструменты</h4>
+                    <h4><i class="fas fa-tools"></i> Tools & Technologies</h4>
                     <ul>
-                        <li><i class="fas fa-check"></i> Git / GitHub</li>
-                        <li><i class="fas fa-check"></i> Docker</li>
-                        <li><i class="fas fa-check"></i> Bash Scripting</li>
-                        <li><i class="fas fa-check"></i> Postman</li>
-                        <li><i class="fas fa-check"></i> VS Code</li>
+                        <li><i class="fas fa-check"></i> Git, GitHub & Version Control</li>
+                        <li><i class="fas fa-check"></i> Docker & Containerization</li>
+                        <li><i class="fas fa-check"></i> Bash Scripting & Automation</li>
+                        <li><i class="fas fa-check"></i> Postman & API Testing</li>
+                        <li><i class="fas fa-check"></i> VS Code & Development Tools</li>
                     </ul>
                 </div>
             </div>
@@ -672,19 +988,19 @@
             <div class="contact-card">
                 <i class="fab fa-github"></i>
                 <h3>GitHub</h3>
-                <a href="https://github.com/Mikhail15011976" target="_blank">
-                    @Mikhail15011976
+                <a href="https://github.com/mikhailbbk" target="_blank">
+                    @mikhailbbk
                 </a>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Исходный код проектов</p>
+                <p>Исходный код проектов</p>
             </div>
             
             <div class="contact-card">
                 <i class="fab fa-telegram"></i>
                 <h3>Telegram</h3>
-                <a href="https://t.me/Mikhail15011976" target="_blank">
-                    @Mikhail15011976
+                <a href="https://t.me/mikhailbbk" target="_blank">
+                    @mikhailbbk
                 </a>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Быстрая связь</p>
+                <p>Быстрая связь</p>
             </div>
             
             <div class="contact-card">
@@ -693,13 +1009,13 @@
                 <a href="mailto:nebushko.mikhail@gmail.com">
                     nebushko.mikhail@gmail.com
                 </a>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Деловая переписка</p>
+                <p>Деловая переписка</p>
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">
-            <h3 style="color: white; margin-bottom: 1rem; font-size: 1.5rem;">Готов к сотрудничеству</h3>
-            <p style="color: rgba(255,255,255,0.9); line-height: 1.6;">
+        <div class="collaboration-cta">
+            <h3>Готов к сотрудничеству</h3>
+            <p>
                 Ищу интересные проекты в области backend разработки, парсинга данных или DevOps. 
                 Открыт для предложений о сотрудничестве, фрилансе или удаленной работе.
             </p>
@@ -708,15 +1024,13 @@
 
     <footer>
         <p>© 2024 Михаил Бабков | Python Backend Developer & DevOps Engineer</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+        <p>
             <i class="fas fa-code"></i> Портфолио: 
-            <a href="https://mikhail15011976.github.io" style="color: #3498db; font-weight: 500;">
-                mikhail15011976.github.io
+            <a href="https://mikhailbbk.github.io">
+                mikhailbbk.github.io
             </a>
         </p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
-            Последнее обновление: Декабрь 2024
-        </p>
+        <p>Последнее обновление: Январь 2025</p>
     </footer>
 
     <script>
@@ -741,6 +1055,21 @@
                 observer.observe(card);
             });
 
+            // Наблюдаем за иконками технологий
+            document.querySelectorAll('.tech-icon-item').forEach(icon => {
+                observer.observe(icon);
+            });
+
+            // Наблюдаем за карточками навыков
+            document.querySelectorAll('.skill-category').forEach(skill => {
+                observer.observe(skill);
+            });
+
+            // Наблюдаем за карточками контактов
+            document.querySelectorAll('.contact-card').forEach(card => {
+                observer.observe(card);
+            });
+
             // Плавная прокрутка для навигации
             document.querySelectorAll('nav a').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
@@ -761,21 +1090,58 @@
                 });
             });
 
-            // Проверка ссылок на проекты
-            const projectLinks = document.querySelectorAll('.project-link-details');
-            projectLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    fetch(this.href)
-                        .then(response => {
-                            if (!response.ok) {
-                                console.error('Файл не найден:', this.href);
-                                e.preventDefault();
-                                alert('Страница проекта временно недоступна');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Ошибка при проверке файла:', error);
-                        });
+            // Анимация для заголовка при загрузке
+            const heroTitle = document.querySelector('.hero h2');
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            const ctaButtons = document.querySelector('.cta-buttons');
+
+            if (heroTitle) {
+                setTimeout(() => {
+                    heroTitle.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }, 300);
+            }
+
+            if (heroSubtitle) {
+                setTimeout(() => {
+                    heroSubtitle.style.animation = 'fadeInUp 0.8s ease-out 0.2s forwards';
+                    heroSubtitle.style.opacity = '0';
+                }, 500);
+            }
+
+            if (ctaButtons) {
+                setTimeout(() => {
+                    ctaButtons.style.animation = 'fadeInUp 0.8s ease-out 0.4s forwards';
+                    ctaButtons.style.opacity = '0';
+                }, 700);
+            }
+
+            // Подсветка активного раздела при скролле
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+            function highlightNavLink() {
+                let scrollY = window.pageYOffset;
+
+                sections.forEach(section => {
+                    const sectionHeight = section.offsetHeight;
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionId = section.getAttribute('id');
+                    const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        if (navLink) navLink.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', highlightNavLink);
+
+            // Добавляем класс active для текущего раздела
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
                 });
             });
         });
