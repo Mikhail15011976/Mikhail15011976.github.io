@@ -611,7 +611,8 @@ footer a:hover {
 
 footer p {
     margin: 0.5rem 0;
-    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
 }
 
 /* ===== Анимации ===== */
@@ -704,6 +705,11 @@ footer p {
         width: 100%;
         max-width: 300px;
     }
+
+    .skill-category,
+    .about-text {
+        padding: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -751,4 +757,14 @@ footer p {
 
 body {
     animation: fadeIn 0.8s ease-out;
+}
+
+/* Активная ссылка в навигации */
+nav a.active {
+    color: #3498db;
+    background: rgba(255,255,255,0.1);
+}
+
+nav a.active::after {
+    width: 80%;
 }
