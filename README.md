@@ -34,12 +34,12 @@ Python разработчик с фокусом на backend и DevOps. Спец
 - **Статус:** Онлайн на VPS с полным шифрованием
 
 ### [QuizPlease Autoreg](https://mikhailbbk.github.io/projects/quizplease-autoreg.html)  
-**Python + BeautifulSoup + Telegram API + CI/CD**
-- Система автоматического мониторинга игр "Квиз, плиз! KLG"
-- Парсинг данных и умные Telegram уведомления
-- Автоматический деплой через GitHub Actions
-- Systemd сервис с автозапуском
-- **Статус:** Работает в production с 2024 года
+**Python 3.11 + BeautifulSoup4 + Telegram API + CI/CD**
+- Автоматический мониторинг расписания игр на quizplease.ru
+- Telegram уведомления о новых играх и изменении статуса
+- Полный CI/CD цикл через GitHub Actions
+- Systemd сервис для production работы 24/7
+- **Статус:** Production, работает с 2025 года
 
 ## Технологический стек
 - **Backend**: Python 3.11, Django 5, Django REST Framework, Flask 3.1, FastAPI, PostgreSQL, SQLite  
@@ -47,6 +47,7 @@ Python разработчик с фокусом на backend и DevOps. Спец
 - **Frontend**: React, JavaScript, HTML5/CSS3, Jinja2, Material-UI 
 - **Инструменты**: Git, PyCharm, VS Code, Postman, Bash, GitHub Actions, SSH
 - **Парсинг**: BeautifulSoup, Requests, Selenium
+- **API**: Telegram Bot API, REST API, JWT Authentication
 
 ## Контакты
 - **GitHub**: [Mikhailbbk](https://github.com/Mikhailbbk)
