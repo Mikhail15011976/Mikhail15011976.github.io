@@ -177,7 +177,7 @@ section:last-child {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 80px;
+    padding-top: 120px; /* Увеличено с 80px до 120px для мобильных устройств */
     border-bottom: none;
 }
 
@@ -872,7 +872,7 @@ footer p {
     }
 
     .hero {
-        padding-top: 70px;
+        padding-top: 140px; /* Увеличено с 70px до 140px для мобильных устройств */
         min-height: calc(100vh - 70px);
     }
 
@@ -880,12 +880,14 @@ footer p {
         font-size: 2rem;
         line-height: 1.2;
         padding: 0 0.5rem;
+        margin-top: 0; /* Убраны возможные лишние отступы */
     }
 
     .hero-subtitle {
         font-size: 1.2rem;
         line-height: 1.4;
         padding: 0 0.5rem;
+        margin-top: 1rem; /* Добавлен отступ для лучшего разделения */
     }
     
     .hero-highlights {
@@ -940,6 +942,7 @@ footer p {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
+        margin-top: 2rem;
     }
 
     .btn-primary,
@@ -1068,14 +1071,20 @@ footer p {
         font-size: 0.8rem;
     }
     
+    .hero {
+        padding-top: 150px; /* Еще больше увеличено для очень маленьких устройств */
+    }
+    
     .hero h2 {
         font-size: 1.6rem;
         padding: 0 0.3rem;
+        margin-top: 0;
     }
     
     .hero-subtitle {
         font-size: 1rem;
         padding: 0 0.3rem;
+        margin-top: 0.5rem;
     }
     
     .hero-highlights {
@@ -1172,12 +1181,18 @@ footer p {
 
 /* Экстремально маленькие устройства (до 360px) */
 @media (max-width: 360px) {
+    .hero {
+        padding-top: 160px; /* Максимальное значение для самых маленьких экранов */
+    }
+    
     .hero h2 {
         font-size: 1.4rem;
+        margin-top: 0;
     }
     
     .hero-subtitle {
         font-size: 0.9rem;
+        margin-top: 0.5rem;
     }
     
     .highlight-item p {
@@ -1202,11 +1217,12 @@ footer p {
 @media (max-width: 768px) and (orientation: landscape) {
     .hero {
         min-height: auto;
-        padding: 100px 2rem 3rem;
+        padding: 140px 2rem 3rem; /* Увеличено верхнее смещение */
     }
     
     nav {
         flex-direction: row;
+        padding: 0.5rem 1rem;
     }
     
     nav ul {
@@ -1264,4 +1280,4 @@ textarea,
 button {
     -webkit-appearance: none;
     border-radius: 0;
-} 
+}
